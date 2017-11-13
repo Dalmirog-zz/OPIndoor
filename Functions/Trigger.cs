@@ -22,6 +22,17 @@ namespace AzureFunctions
         }
     }
 
+    public static class Whatever
+    {
+        [FunctionName("Whatever")]
+        public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+        {
+            log.Info($"Trigger executed at: {DateTime.Now}");
+
+            log.Info("Hello from log info!");
+        }
+    }
+
     public static class TestHTTPEndpoint
     {
         [FunctionName("TestHTTPEndPoint")]
